@@ -1,0 +1,579 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Untuk Calista</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500..700;1,500..700&family=Nunito+Sans:wght@400;600&family=Dancing+Script:wght@600&display=swap">
+<style>
+/* Layout: satu halaman cerita yang bergulir. Pita warna bergantian gelap, krem, dan blush.
+   Foto di atas teks di ponsel, berdampingan di layar lebar. Satu tampilan tetap, tanpa mode gelap. */
+:root {
+  --plum: #2E1A24;
+  --plum-glow: #5C2F43;
+  --cream: #FBF3EE;
+  --blush: #F4E3DC;
+  --rose: #A63D55;
+  --rose-soft: #E58CA0;
+  --gold: #E8B77A;
+  --ink-muted: #6B4A55;
+  --ink-soft-on-dark: #E9D3D9;
+  --line-on-dark: #5C3A49;
+  --photo-ground: #E3C4BB;
+  --display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --body: 'Nunito Sans', 'Segoe UI', Arial, sans-serif;
+  --script: 'Dancing Script', 'Brush Script MT', cursive;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--plum);
+  font-family: var(--body);
+  font-size: 18px;
+  line-height: 1.55;
+  -webkit-text-size-adjust: 100%;
+}
+h1, h2, p, figure, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+img { display: block; }
+button { font-family: inherit; }
+
+/* Pita warna dan pembungkus isi */
+.band { position: relative; overflow: hidden; }
+.band--dark { background: var(--plum); color: var(--cream); }
+.band--dark.glow { background: radial-gradient(circle at 78% 22%, var(--plum-glow), var(--plum)); }
+.band--cream { background: var(--cream); color: var(--plum); }
+.band--blush { background: var(--blush); color: var(--plum); }
+.wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding-block: clamp(64px, 11vw, 128px);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Lingkaran dekoratif */
+.rings::before, .rings::after, .disc::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.rings::before {
+  right: max(16px, 5vw);
+  top: clamp(24px, 6vw, 96px);
+  width: clamp(120px, 24vw, 360px);
+  aspect-ratio: 1;
+  border: 2px solid var(--gold);
+  opacity: 0.5;
+}
+.rings::after {
+  right: calc(max(16px, 5vw) + clamp(20px, 4vw, 80px));
+  top: calc(clamp(24px, 6vw, 96px) + clamp(20px, 4vw, 80px));
+  width: clamp(60px, 12vw, 200px);
+  aspect-ratio: 1;
+  background: var(--rose-soft);
+  opacity: 0.3;
+}
+.disc::after {
+  right: max(16px, 5vw);
+  top: clamp(80px, 14vw, 200px);
+  width: clamp(140px, 28vw, 420px);
+  aspect-ratio: 1;
+  background: var(--blush);
+}
+
+/* Teks */
+.eyebrow {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.eyebrow--rose { color: var(--rose); }
+.eyebrow--gold { color: var(--gold); }
+h1, h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  line-height: 1.05;
+  text-wrap: balance;
+  color: inherit;
+}
+h2 { font-size: clamp(44px, 8.5vw, 104px); }
+.lede {
+  max-width: 36ch;
+  font-size: clamp(19px, 2.3vw, 26px);
+  line-height: 1.5;
+}
+.band--dark .lede { color: var(--ink-soft-on-dark); }
+.band--cream .lede, .band--blush .lede { color: var(--ink-muted); }
+
+/* Tombol */
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  min-height: 56px;
+  padding: 0 36px;
+  background: var(--rose);
+  color: var(--cream);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+}
+.band--dark .btn { background: var(--rose-soft); color: var(--plum); }
+.btn:focus-visible { outline: 3px solid var(--rose); outline-offset: 3px; }
+.band--dark .btn:focus-visible { outline-color: var(--gold); }
+
+/* Sampul */
+.cover { display: flex; min-height: 100vh; min-height: 100svh; }
+.cover-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+}
+.cover-main { display: flex; flex-direction: column; gap: 20px; }
+.script {
+  font-family: var(--script);
+  font-weight: 600;
+  font-size: clamp(40px, 7vw, 80px);
+  line-height: 1.1;
+  color: var(--rose-soft);
+}
+.cover h1 { font-size: clamp(56px, 13vw, 168px); }
+.cover-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 12px; }
+.hint { font-size: 16px; color: var(--ink-soft-on-dark); }
+
+/* Hitungan hari */
+.hari-wrap { display: flex; flex-direction: column; gap: clamp(32px, 6vw, 72px); }
+.big {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(112px, 36vw, 380px);
+  line-height: 1;
+  font-variant-numeric: lining-nums;
+  color: var(--rose);
+}
+.big-sub {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(32px, 6vw, 72px);
+  line-height: 1.1;
+}
+
+/* Momen */
+.moment-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 96px);
+}
+.moment-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+  min-width: 0;
+}
+.moment-head { display: flex; flex-direction: column; gap: 20px; }
+.moment-body { display: flex; flex-direction: column; gap: 28px; }
+.rule { width: 96px; margin: 0; border: 0; border-top: 3px solid var(--rose); }
+.photo {
+  order: -1;
+  aspect-ratio: 7 / 8;
+  max-width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--photo-ground);
+}
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+@media (min-width: 880px) {
+  .moment-wrap { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); }
+  .photo { order: 0; }
+}
+
+/* Lima hal */
+.traits { margin-top: clamp(32px, 5vw, 56px); }
+.traits li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4px;
+  padding-block: 24px;
+  border-top: 1px solid var(--line-on-dark);
+}
+.traits li:last-child { border-bottom: 1px solid var(--line-on-dark); }
+.trait-word {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.1;
+  color: var(--gold);
+}
+.trait-line { font-size: clamp(18px, 2.2vw, 24px); color: var(--ink-soft-on-dark); }
+@media (min-width: 700px) {
+  .traits li {
+    grid-template-columns: minmax(200px, 0.38fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 48px;
+  }
+}
+
+/* Lagu */
+.lagu-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: center;
+}
+.lagu-text { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; min-width: 0; }
+.song-title { font-size: clamp(64px, 15vw, 200px); }
+.artist { font-size: clamp(20px, 3vw, 36px); color: var(--ink-muted); }
+.vinyl {
+  order: -1;
+  position: relative;
+  width: min(72vw, 460px);
+  max-width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle at 50% 50%, #2E1A24 0 4px, #3B2430 4px 8px);
+  box-shadow: 0 24px 60px rgba(46, 26, 36, 0.25);
+  animation: spin 9s linear infinite;
+  animation-play-state: paused;
+}
+.is-playing .vinyl { animation-play-state: running; }
+.vinyl-label {
+  position: absolute;
+  inset: 32%;
+  border-radius: 50%;
+  background: var(--rose-soft);
+}
+.vinyl-label::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 9%;
+  width: 11%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--plum);
+  transform: translateX(-50%);
+}
+.vinyl-label::after {
+  content: "";
+  position: absolute;
+  inset: 40%;
+  border-radius: 50%;
+  background: var(--blush);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (min-width: 880px) {
+  .lagu-wrap { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
+  .vinyl { order: 0; justify-self: end; }
+}
+
+/* Penutup */
+.closing-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 96px;
+  min-height: min(70vh, 680px);
+}
+.closing-body { display: flex; flex-direction: column; gap: 28px; }
+.closing-body h2 { font-size: clamp(48px, 10vw, 152px); }
+
+/* Tombol musik melayang */
+.music {
+  position: fixed;
+  right: calc(16px + env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 20px 0 16px;
+  border: 1px solid var(--rose);
+  border-radius: 999px;
+  background: var(--cream);
+  color: var(--plum);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 8px 24px rgba(46, 26, 36, 0.25);
+  cursor: pointer;
+}
+.music:focus-visible { outline: 3px solid var(--rose-soft); outline-offset: 3px; }
+.music .waves { display: none; }
+.is-playing .music .waves { display: inline; }
+.is-playing .music .slash { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .vinyl { animation: none; }
+}
+</style>
+
+<audio id="bgm" src="sempurna.mp3" loop preload="auto"></audio>
+
+<header class="band band--dark glow rings cover">
+  <div class="wrap cover-wrap">
+    <p class="eyebrow eyebrow--gold">15 Oktober 2023 sampai hari ini</p>
+    <div class="cover-main">
+      <p class="script">Untuk kamu,</p>
+      <h1>Calista Artanti</h1>
+      <p class="lede">Sedikit kenangan kita, buat hari biasa yang jadi spesial.</p>
+      <div class="cover-actions">
+        <button class="btn js-open" type="button">Buka dengan musik</button>
+        <p class="hint">Nyalakan suara dulu ya.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="band band--cream disc" id="hari">
+    <div class="wrap hari-wrap">
+      <p class="eyebrow eyebrow--rose">Hitungan kita</p>
+      <div>
+        <p class="big"><span id="days-total">1.101</span></p>
+        <p class="big-sub">hari bersama kamu</p>
+      </div>
+      <p class="lede"><span id="days-elapsed">3 tahun 5 hari</span> sejak 15 Oktober 2023, dan aku masih senang tiap kali pulang ke kamu.</p>
+    </div>
+  </section>
+
+  <section class="band band--blush">
+    <div class="wrap moment-wrap">
+      <div class="moment-text">
+        <div class="moment-head">
+          <p class="eyebrow eyebrow--rose">15 Oktober 2023</p>
+          <h2>Awal kita</h2>
+        </div>
+        <div class="moment-body">
+          <hr class="rule">
+          <p class="lede">Tanggal 15 Oktober 2023, hari yang mengubah banyak hal. Terima kasih sudah mau memulai semuanya bareng aku.</p>
+        </div>
+      </div>
+      <figure class="photo">
+        <img src="f1.jpg" alt="Foto berdua di depan dinding pink, saling bersandar dan tersenyum" style="object-position: 50% 30%" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </section>
+
+  <section class="band band--cream">
+    <div class="wrap moment-wrap">
+      <div class="moment-text">
+        <div class="moment-head">
+          <p class="eyebrow eyebrow--rose">Tawa</p>
+          <h2>Ketawa sampai lupa waktu</h2>
+        </div>
+        <div class="moment-body">
+          <hr class="rule">
+          <p class="lede">Hal-hal receh yang cuma kita berdua yang ngerti. Itu yang bikin hari-hari aku terasa ringan.</p>
+        </div>
+      </div>
+      <figure class="photo">
+        <img src="f3.jpg" alt="Dua cetakan foto photobooth berdua dengan pose lucu, dipegang di depan dinding pink dan biru" style="object-position: 50% 62%" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </section>
+
+  <section class="band band--blush">
+    <div class="wrap moment-wrap">
+      <div class="moment-text">
+        <div class="moment-head">
+          <p class="eyebrow eyebrow--rose">Senyum</p>
+          <h2>Foto terbaik kamu</h2>
+        </div>
+        <div class="moment-body">
+          <hr class="rule">
+          <p class="lede">Dari semua foto yang aku simpan, yang ini paling aku suka. Senyum kamu di sini nggak bikin aku bosan lihatnya.</p>
+        </div>
+      </div>
+      <figure class="photo">
+        <img src="f5.jpg" alt="Perempuan berhijab tersenyum di depan dinding penuh poster bernuansa biru" style="object-position: 50% 40%" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </section>
+
+  <section class="band band--cream">
+    <div class="wrap moment-wrap">
+      <div class="moment-text">
+        <div class="moment-head">
+          <p class="eyebrow eyebrow--rose">Genggaman</p>
+          <h2>Kamu yang selalu sabar</h2>
+        </div>
+        <div class="moment-body">
+          <hr class="rule">
+          <p class="lede">Di hari-hari aku lagi bukan versi terbaikku, kamu tetap tenang dan tetap di sini.</p>
+        </div>
+      </div>
+      <figure class="photo">
+        <img src="f2.png" alt="Dua tangan saling menggenggam, satu memakai gelang manik-manik pink berbentuk kupu-kupu" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </section>
+
+  <section class="band band--blush">
+    <div class="wrap moment-wrap">
+      <div class="moment-text">
+        <div class="moment-head">
+          <p class="eyebrow eyebrow--rose">Sehari-hari</p>
+          <h2>Hari-hari biasa</h2>
+        </div>
+        <div class="moment-body">
+          <hr class="rule">
+          <p class="lede">Yang paling aku suka justru yang sederhana: ngobrol, makan bareng, atau diam-diaman tapi tetap nyaman.</p>
+        </div>
+      </div>
+      <figure class="photo">
+        <img src="f4.jpg" alt="Selfie santai dari sudut bawah, mengenakan kemeja putih" style="object-position: 50% 35%" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </section>
+
+  <section class="band band--dark">
+    <div class="wrap">
+      <p class="eyebrow eyebrow--gold">Tentang kamu</p>
+      <h2 style="margin-top: 16px; max-width: 18ch;">Lima hal yang aku suka dari kamu</h2>
+      <ul class="traits">
+        <li><span class="trait-word">Baik</span><span class="trait-line">Baik ke semua orang, termasuk ke aku pas lagi nyebelin.</span></li>
+        <li><span class="trait-word">Pinter</span><span class="trait-line">Cara kamu mikir selalu bikin aku ikut belajar.</span></li>
+        <li><span class="trait-word">Sabar</span><span class="trait-line">Nggak pernah buru-buru nyerah sama aku.</span></li>
+        <li><span class="trait-word">Pengertian</span><span class="trait-line">Ngerti aku bahkan sebelum aku selesai cerita.</span></li>
+        <li><span class="trait-word">Cantik</span><span class="trait-line">Luar dan dalam. Senyum kamu tetap favoritku.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band band--blush" id="lagu">
+    <div class="wrap lagu-wrap">
+      <div class="lagu-text">
+        <p class="eyebrow eyebrow--rose">Lagu buat kamu</p>
+        <h2 class="song-title">Sempurna</h2>
+        <p class="artist">Andra and the Backbone</p>
+        <p class="lede">Lagu yang dari tadi menemani kamu. Satu lagu nggak cukup buat bilang semuanya, tapi semoga cukup buat bikin kamu senyum.</p>
+        <button class="btn js-toggle" type="button"><span data-music-label data-on="Jeda lagunya" data-off="Putar lagunya">Putar lagunya</span></button>
+      </div>
+      <div class="vinyl" role="img" aria-label="Piringan hitam yang berputar saat lagu diputar"><span class="vinyl-label"></span></div>
+    </div>
+  </section>
+</main>
+
+<footer class="band band--dark glow rings">
+  <div class="wrap closing-wrap">
+    <p class="eyebrow eyebrow--gold">Cuma mau bilang</p>
+    <div class="closing-body">
+      <h2>Aku sayang kamu, Calista.</h2>
+      <p class="lede">Nggak ada acara apa-apa hari ini. Aku cuma mau kamu tahu betapa berartinya kamu buat aku.</p>
+    </div>
+  </div>
+</footer>
+
+<button class="music js-toggle" type="button">
+  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"></path>
+    <path class="waves" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"></path>
+    <path class="slash" d="M16 9l5 6M21 9l-5 6"></path>
+  </svg>
+  <span data-music-label data-on="Jeda musik" data-off="Nyalakan musik">Nyalakan musik</span>
+</button>
+
+<script>
+(function () {
+  var audio = document.getElementById('bgm');
+  var root = document.documentElement;
+  var userPaused = false;
+  var fadeTimer = null;
+  var TARGET_VOLUME = 0.85;
+
+  function setLabels(playing) {
+    var nodes = document.querySelectorAll('[data-music-label]');
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].textContent = nodes[i].getAttribute(playing ? 'data-on' : 'data-off');
+    }
+    root.classList.toggle('is-playing', playing);
+  }
+
+  function fadeIn() {
+    clearInterval(fadeTimer);
+    var v = 0;
+    try { audio.volume = 0; } catch (e) { return; }
+    fadeTimer = setInterval(function () {
+      v += 0.05;
+      if (v >= TARGET_VOLUME) { v = TARGET_VOLUME; clearInterval(fadeTimer); }
+      try { audio.volume = v; } catch (e) { clearInterval(fadeTimer); }
+    }, 120);
+  }
+
+  function play() {
+    userPaused = false;
+    var result;
+    try { result = audio.play(); } catch (e) { setLabels(false); return; }
+    if (result && typeof result.then === 'function') {
+      result.then(fadeIn).catch(function () { setLabels(false); });
+    }
+  }
+
+  function pause() {
+    userPaused = true;
+    clearInterval(fadeTimer);
+    audio.pause();
+  }
+
+  audio.addEventListener('playing', function () { setLabels(true); detach(); });
+  audio.addEventListener('pause', function () { setLabels(false); });
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target && e.target.closest ? e.target.closest('button') : null;
+    if (!btn) return;
+    if (btn.classList.contains('js-open')) {
+      play();
+      var next = document.getElementById('hari');
+      if (next && next.scrollIntoView) next.scrollIntoView({ block: 'start' });
+    } else if (btn.classList.contains('js-toggle')) {
+      if (audio.paused) play(); else pause();
+    }
+  });
+
+  function firstGesture(e) {
+    if (e.target && e.target.closest && e.target.closest('button')) return;
+    detach();
+    if (audio.paused && !userPaused) play();
+  }
+  function detach() {
+    window.removeEventListener('pointerup', firstGesture);
+    window.removeEventListener('keydown', firstGesture);
+  }
+  window.addEventListener('pointerup', firstGesture);
+  window.addEventListener('keydown', firstGesture);
+
+  function elapsed(now) {
+    var y = now.getFullYear() - 2023;
+    var m = now.getMonth() - 9;
+    var d = now.getDate() - 15;
+    if (d < 0) { m -= 1; d += new Date(now.getFullYear(), now.getMonth(), 0).getDate(); }
+    if (m < 0) { y -= 1; m += 12; }
+    var total = Math.round((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(2023, 9, 15)) / 86400000);
+    return { years: y, months: m, days: d, total: total };
+  }
+
+  var span = elapsed(new Date());
+  if (span.total >= 0) {
+    var parts = [];
+    if (span.years) parts.push(span.years + ' tahun');
+    if (span.months) parts.push(span.months + ' bulan');
+    if (span.days) parts.push(span.days + ' hari');
+    document.getElementById('days-total').textContent = String(span.total).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    document.getElementById('days-elapsed').textContent = parts.length ? parts.join(' ') : 'Hari ini';
+  }
+})();
+</script>
+
+</body></html>
